@@ -4,6 +4,7 @@ require_relative "./notifications_services_pb"
 
 class NotificationServer < Notifications::NotificationService::Service
   def send_notification(notification_req, _unused_call)
+    #propagate and handle notification here
     puts "Received notification for user #{notification_req.userId}: #{notification_req.message} (Type: #{notification_req.messageType})"
     Google::Protobuf::Empty.new
   end
